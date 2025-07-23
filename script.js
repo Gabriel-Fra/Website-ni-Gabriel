@@ -23,4 +23,15 @@ function spawnFrogs(count) {
   const frogSize = Math.min(300, width * 0.25); // Responsive sizing
 
   for (let i = 0; i < count; i++) {
-    const x = Math.random()
+    const x = Math.random() * (width - frogSize);
+    const y = Math.random() * (height - frogSize);
+    createFrog(x, y, frogSize);
+  }
+}
+
+setTimeout(() => {
+  document.getElementById('loading-screen').style.display = 'none';
+  const container = document.getElementById('frog-container');
+  container.style.display = 'block';
+  spawnFrogs(10);
+}, 5000);
