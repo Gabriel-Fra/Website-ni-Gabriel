@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background-color: #a7e0a2;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  z-index: 999;
+}
+
+#frog-container {
+  display: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.frog {
+  position: absolute;
+  width: 300px; /* increased from 80px */
+  transition: transform 1s ease-out;
+  animation: jump 2s infinite ease-in-out;
+}
+
+@keyframes jump {
+  0% { transform: scale(0) translateY(100vh); opacity: 0; }
+  40% { opacity: 1; }
+  50% { transform: scale(1.2) translateY(0); }
+  70% { transform: scale(1) translateY(-30px); }
+  100% { transform: scale(1.1) translateY(0); }
+}
+
+@media (max-width: 768px) {
+  #loading-screen {
+    font-size: 1.5em;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .frog {
+    width: 250px; /* smaller frogs on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .frog {
+    width: 200px;
+  }
+}
+
